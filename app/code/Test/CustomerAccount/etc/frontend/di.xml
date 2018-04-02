@@ -1,0 +1,5 @@
+<config>
+    <type name="Magento\Customer\CustomerData\Customer">
+        <plugin name="custom_customer_status_plugin" type="Test\CustomerAccount\Plugin\GetSectionData" sortOrder="1" />
+    </type>
+</config>

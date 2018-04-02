@@ -1,0 +1,25 @@
+<?php
+
+// @codingStandardsIgnoreFile
+/** @var \Magento\Customer\Block\Form\Edit $block */
+?>
+<form class="form form-edit-account" action="<?php echo $block->escapeUrl($block->getUrl('customerCustomAttribute/account/save')) ?>" method="post" id="form-validate" enctype="multipart/form-data" data-hasrequired="<?php echo $block->escapeHtmlAttr(__('* Required Fields')) ?>" autocomplete="off">
+    <div class="fieldset">
+        <fieldset class="fieldset info">
+            <label for="custom-status"><?php echo $block->escapeHtml(__('Set customer status')) ?></label>
+            <select id="custom-status" name="customer_account_edit" title="<?php echo $block->escapeHtml(__('Set customer status')) ?>" class="flags">
+                <?php foreach ($block->getCustomStatusOptions() as $option): ?>
+                    <?php $_selected = ($option->getValue() == $block->getCurrentCustomStatus()) ? ' selected="selected"' : '' ?>
+                    <option value="<?php /* @escapeNotVerified */ echo $option->getValue() ?>" <?php /* @escapeNotVerified */ echo $_selected ?>><?php echo $block->escapeHtml($option->getLabel()->getText()) ?></option>
+                <?php endforeach; ?>
+            </select>
+            <?php echo $block->getBlockHtml('formkey')?>
+        </fieldset>
+    </div>
+    <br/>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" class="action save primary" title="<?php echo $block->escapeHtmlAttr(__('Save')) ?>"><span><?php echo $block->escapeHtml(__('Save')) ?></span></button>
+        </div>
+    </div>
+</form>
